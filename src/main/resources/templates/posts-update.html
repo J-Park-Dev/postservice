@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{layout/layoutFile :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 등록</title>
+
+</head>
+<body>
+<section>
+    <div class="container">
+        <div class="py-5 text-center">
+            <h1>게시글 수정</h1>
+        </div>
+
+
+        <form th:action th:object="${posts}">
+            <div>
+                <label for="id">글 번호</label>
+                <input type="text" class="form-control" id="id" th:field="*{id}" readonly>
+            </div>
+            <div>
+                <label for="title">제목</label>
+                <input type="text" class="form-control" id="title" th:field="*{title}">
+            </div>
+            <div>
+                <label for="author">작성자</label>
+                <input type="text" class="form-control" id="author" th:field="*{author}" readonly>
+            </div>
+            <div>
+                <label for="content">내용</label>
+                <textarea class="form-control" id="content" th:field="*{content}"></textarea>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col">
+                    <button class="w-100 btn btn-primary btn-lg" type="button" id="btn-update">수정 완료</button>
+                </div>
+                <div class="col">
+                    <button class="w-100 btn btn-secondary btn-lg"
+                            onclick="location.href='index.html'"
+                            th:onclick="|location.href='@{/}'|"
+                            type="button">취소</button>
+                </div>
+                <div class="col">
+                    <button class="w-100 btn btn-danger btn-lg" id="btn-delete" type="button">삭제</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
